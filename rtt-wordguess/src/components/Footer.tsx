@@ -1,5 +1,5 @@
 import colors from 'tailwindcss/colors';
-import FooterLink from './FooterLink';
+import NormalNavLink from './NormalNavLink';
 
 const Footer = () => {
   return (
@@ -10,14 +10,33 @@ const Footer = () => {
         </p>
         <ul className='flex items-center justify-end gap-8 ml-auto'>
           <li>
-            <FooterLink
+            <NormalNavLink
               link='https://github.com/gmni-dev/RTT-WordGuess'
-              title='Project GitHub'>
+              title='Repository'>
               <box-icon
                 type='logo'
                 name='github'
                 color={colors.slate[200]}></box-icon>
-            </FooterLink>
+            </NormalNavLink>
+          </li>
+          <li>
+            <NormalNavLink
+              link='https://austin.fo/linkedin'
+              title='LinkedIn'>
+              <box-icon
+                type='logo'
+                name='linkedin'
+                color={colors.slate[200]}></box-icon>
+            </NormalNavLink>
+          </li>
+          <li>
+            <NormalNavLink
+              link='https://austin.fo/'
+              title='Austin H.'>
+              <box-icon
+                name='link-external'
+                color={colors.slate[200]}></box-icon>
+            </NormalNavLink>
           </li>
         </ul>
       </nav>

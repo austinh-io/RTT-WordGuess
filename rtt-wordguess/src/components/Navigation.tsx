@@ -1,4 +1,5 @@
 import Logo from './Logo';
+import NormalNavLink from './NormalNavLink';
 
 const Navigation = () => {
   return (
@@ -8,13 +9,19 @@ const Navigation = () => {
           <Logo />
           <ul className='flex items-center justify-end gap-8 ml-auto'>
             <li>
-              <a href='/'>Home</a>
+              <NormalNavLink
+                title='Home'
+                link='/'></NormalNavLink>
             </li>
             <li>
-              <a href='/'>Game</a>
+              <NormalNavLink
+                title='Game'
+                link='/'></NormalNavLink>
             </li>
             <li>
-              <a href='/'>About</a>
+              <NormalNavLink
+                title='About'
+                link='/'></NormalNavLink>
             </li>
           </ul>
         </div>

@@ -16,12 +16,12 @@ const Navigation = () => {
             <li>
               <StandardLink
                 title='Game'
-                link='/'></StandardLink>
+                link='/game'></StandardLink>
             </li>
             <li>
               <StandardLink
                 title='About'
-                link='/'></StandardLink>
+                link='/about'></StandardLink>
             </li>
           </ul>
         </div>

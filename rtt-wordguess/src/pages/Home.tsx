@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import Button from '../components/Button';
 
 const Home = () => {
@@ -12,8 +13,12 @@ const Home = () => {
             A game about finding the hidden word.
           </p>
           <div className='flex items-start justify-center mt-8 gap-8'>
-            <Button>New Game</Button>
-            <Button>About</Button>
+            <Button>
+              <Link to='/game'>New Game</Link>
+            </Button>
+            <Button>
+              <Link to='/about'>About</Link>
+            </Button>
           </div>
         </div>
         <div className='items-center justify-center'>

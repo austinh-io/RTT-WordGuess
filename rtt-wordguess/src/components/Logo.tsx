@@ -5,7 +5,7 @@ const Logo = () => {
         <img
           src='https://via.placeholder.com/150'
           alt='logo'
-          className='w-12 h-12'
+          className='w-12 h-12 rounded'
         />
       </div>
     </>

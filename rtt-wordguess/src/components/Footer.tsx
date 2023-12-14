@@ -10,6 +10,10 @@ const Footer = () => {
             <a
               href='https://github.com/gmni-dev/RTT-WordGuess'
               target='blank'>
+              <box-icon
+                type='solid'
+                name='coffee-bean'
+                color='green'></box-icon>
               Project GitHub
             </a>
           </li>

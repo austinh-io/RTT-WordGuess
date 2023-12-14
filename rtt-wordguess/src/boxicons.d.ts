@@ -1,3 +1,8 @@
+/*
+I got these types from the Boxicons documentation.
+https://boxicons.com/usage#web-component
+*/
+
 type BoxIconProps = React.HTMLAttributes<HTMLElement> & {
   type?: 'regular' | 'solid' | 'logo';
   name?: string;

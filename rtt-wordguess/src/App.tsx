@@ -1,5 +1,5 @@
 import './App.css';
-import Header from './components/Header';
+import Home from './pages/Home';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 
@@ -8,7 +8,7 @@ function App() {
     <>
       <div className='flex flex-col min-h-full-svh'>
         <Navigation />
-        <Header />
+        <Home />
         <Footer />
       </div>
     </>

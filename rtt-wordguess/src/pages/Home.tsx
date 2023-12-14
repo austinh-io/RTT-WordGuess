@@ -1,6 +1,6 @@
-import Button from './Button';
+import Button from '../components/Button';
 
-const Header = () => {
+const Home = () => {
   return (
     <header className='flex flex-grow justify-between items-center header bg-zinc-800 px-4 h-full'>
       <div className='flex sm:flex-row flex-col-reverse mx-auto  justify-normal sm:justify-between items-center w-full max-w-screen-xl'>
@@ -30,4 +30,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Home;

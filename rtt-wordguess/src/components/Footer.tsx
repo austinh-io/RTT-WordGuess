@@ -12,7 +12,8 @@ const Footer = () => {
           <li>
             <StandardLink
               link='https://github.com/gmni-dev/RTT-WordGuess'
-              title='Repository'>
+              title='Repository'
+              newTab={true}>
               <box-icon
                 type='logo'
                 name='github'
@@ -22,7 +23,8 @@ const Footer = () => {
           <li>
             <StandardLink
               link='https://austin.fo/linkedin'
-              title='LinkedIn'>
+              title='LinkedIn'
+              newTab={true}>
               <box-icon
                 type='logo'
                 name='linkedin'
@@ -32,7 +34,8 @@ const Footer = () => {
           <li>
             <StandardLink
               link='https://austin.fo/'
-              title='Austin H.'>
+              title='Austin H.'
+              newTab={true}>
               <box-icon
                 name='link-external'
                 color={colors.slate[200]}></box-icon>

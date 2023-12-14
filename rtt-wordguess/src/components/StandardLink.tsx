@@ -9,7 +9,7 @@ type FooterLinkProps = {
   newTab?: boolean;
 };
 
-const NormalNavLink: React.FC<FooterLinkProps> = ({
+const StandardLink: React.FC<FooterLinkProps> = ({
   link,
   title,
   children,
@@ -33,4 +33,4 @@ const NormalNavLink: React.FC<FooterLinkProps> = ({
   );
 };
 
-export default NormalNavLink;
+export default StandardLink;

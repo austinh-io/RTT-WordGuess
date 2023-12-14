@@ -2,10 +2,10 @@ import Button from './Button';
 
 const Header = () => {
   return (
-    <header className='flex flex-grow justify-between header bg-zinc-800 px-16 h-full'>
-      <div className='flex mx-auto lg:mb-32 lg:mt-16 justify-between items-center w-full max-w-screen-2xl'>
+    <header className='flex flex-grow justify-between items-center header bg-zinc-800 px-4 h-full'>
+      <div className='flex sm:flex-row flex-col-reverse mx-auto  justify-normal sm:justify-between items-center w-full max-w-screen-xl'>
         <div className='flex flex-col items-start justify-center'>
-          <h1 className='2xl:text-8xl xl:text-7xl lg:text-5xl md:text-4xl sm:text-xl text-indigo-400 font-semibold'>
+          <h1 className='md:text-6xl text-4xl text-indigo-400 font-semibold'>
             WordGuess
           </h1>
           <p className='text-3xl mt-4'>A game about finding the hidden word.</p>

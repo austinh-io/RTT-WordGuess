@@ -1,9 +1,10 @@
-const Button = (props: ButtonProps) => {
-  const { children, onClick } = props;
+import React from 'react';
+
+const Button = ({ children }: { children: React.ReactNode }) => {
   return (
     <button
       className='bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded'
-      onClick={onClick}>
+      onClick={() => console.log('Clicked!')}>
       {children}
     </button>
   );

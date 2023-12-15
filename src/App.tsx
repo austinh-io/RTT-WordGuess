@@ -4,27 +4,39 @@ import About from './pages/About';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 import Game from './pages/Game';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 
 function App() {
+  const location = useLocation();
+
   return (
     <>
-      <div className='flex flex-col min-h-full-svh'>
+      <div className='flex flex-col min-h-full-svh overflow-hidden bg-zinc-800'>
         <Navigation />
-        <Routes>
-          <Route
-            path='/'
-            element={<Home />}
-          />
-          <Route
-            path='/about'
-            element={<About />}
-          />
-          <Route
-            path='/game'
-            element={<Game />}
-          />
-        </Routes>
+        <div className='flex flex-grow'>
+          <AnimatePresence
+            initial={false}
+            mode='wait'>
+            <Routes
+              location={location}
+              key={location.key}>
+              <Route
+                path='/'
+                element={<Home />}
+              />
+              <Route
+                path='/about'
+                element={<About />}
+              />
+              <Route
+                path='/game'
+                element={<Game />}
+              />
+            </Routes>
+          </AnimatePresence>
+        </div>
+
         <Footer />
       </div>
     </>

@@ -10,7 +10,7 @@ type FooterLinkProps = {
   newTab?: boolean;
 };
 
-const StandardLink: React.FC<FooterLinkProps> = ({
+const StyledLink: React.FC<FooterLinkProps> = ({
   uri = 'https://example.com',
   text = 'New Link',
   children,
@@ -18,7 +18,7 @@ const StandardLink: React.FC<FooterLinkProps> = ({
 }) => {
   React.Children.forEach(children, (child) => {
     if (React.isValidElement(child) && child.type !== 'box-icon') {
-      throw new Error('Children of FooterLink must be of type box-icon');
+      throw new Error('Children of StyledLink must be of type box-icon');
     }
   });
 
@@ -34,4 +34,4 @@ const StandardLink: React.FC<FooterLinkProps> = ({
   );
 };
 
-export default StandardLink;
+export default StyledLink;

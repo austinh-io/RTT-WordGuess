@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 const pageTransition = {
   initial: {
-    x: '-100vw',
+    x: '100vw',
   },
   animate: {
     x: 0,
@@ -12,7 +12,7 @@ const pageTransition = {
     },
   },
   exit: {
-    x: '100vw',
+    x: '-100vw',
     transition: {
       duration: 0.5,
     },

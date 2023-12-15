@@ -12,7 +12,7 @@ function App() {
 
   return (
     <>
-      <div className='flex flex-col min-h-full-svh overflow-hidden bg-zinc-800'>
+      <div className='flex flex-col min-h-full-svh overflow-hidden bg-slate-950'>
         <Navigation />
         <div className='flex flex-grow'>
           <AnimatePresence

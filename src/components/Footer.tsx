@@ -3,12 +3,9 @@ import StyledLink from './StyledLink';
 
 const Footer = () => {
   return (
-    <footer className='flex items-center bg-indigo-400 bg-opacity-25 px-4 py-2 mt-auto h-auto min-h-[4rem]'>
+    <footer className='flex items-center bg-slate-900 px-4 py-4 mt-auto h-auto'>
       <nav className='flex flex-col mx-auto sm:flex-row sm:justify-between w-full max-w-screen-xl'>
-        <p className='mr-auto text-indigo-300'>
-          Austin Hagel ©{new Date().getFullYear()}
-        </p>
-        <ul className='flex flex-wrap justify-start items-start gap-4 mt-4 sm:mt-0 sm:gap-8 sm:ml-auto'>
+        <ul className='flex flex-wrap justify-start items-start gap-4 mt-4 sm:mt-0 sm:gap-8 sm:mr-auto'>
           <li>
             <StyledLink
               uri='https://github.com/gmni-dev/RTT-WordGuess'
@@ -17,7 +14,7 @@ const Footer = () => {
               <box-icon
                 type='logo'
                 name='github'
-                color={colors.slate[200]}></box-icon>
+                color={colors.indigo[100]}></box-icon>
             </StyledLink>
           </li>
           <li>
@@ -28,7 +25,7 @@ const Footer = () => {
               <box-icon
                 type='logo'
                 name='linkedin'
-                color={colors.slate[200]}></box-icon>
+                color={colors.indigo[100]}></box-icon>
             </StyledLink>
           </li>
           <li>
@@ -38,10 +35,13 @@ const Footer = () => {
               newTab={true}>
               <box-icon
                 name='link-external'
-                color={colors.slate[200]}></box-icon>
+                color={colors.indigo[100]}></box-icon>
             </StyledLink>
           </li>
         </ul>
+        <p className='sm:ml-auto sm:mt-0 mt-4 text-indigo-100'>
+          Austin Hagel ©{new Date().getFullYear()}
+        </p>
       </nav>
     </footer>
   );

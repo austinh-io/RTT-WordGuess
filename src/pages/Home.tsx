@@ -29,8 +29,8 @@ const Home = () => {
       exit='exit'
       variants={pageTransition}>
       <main className='flex flex-grow justify-between items-center header px-4 h-full w-[100vw]'>
-        <div className='flex sm:flex-row flex-col-reverse mx-auto justify-normal sm:justify-between items-center w-full max-w-screen-xl py-16 pr-4'>
-          <div className='flex flex-col items-start justify-center w-full '>
+        <div className='flex sm:flex-row flex-col-reverse mx-auto items-center w-full max-w-screen-xl py-16 pr-4'>
+          <div className='flex flex-col items-start justify-center w-full mr-auto'>
             <h1 className='md:text-6xl text-4xl mt-8 md:mt-0 text-indigo-200 font-semibold'>
               WordGuess
             </h1>
@@ -50,7 +50,7 @@ const Home = () => {
               </Link>
             </div>
           </div>
-          <div className='w-full'>
+          <div className='flex w-full sm:justify-end'>
             <img
               src='https://via.placeholder.com/512'
               alt='Placeholder Image'

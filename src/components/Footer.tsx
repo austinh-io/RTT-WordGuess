@@ -1,5 +1,5 @@
 import colors from 'tailwindcss/colors';
-import StandardLink from './StandardLink';
+import StandardLink from './StyledLink';
 
 const Footer = () => {
   return (
@@ -11,8 +11,8 @@ const Footer = () => {
         <ul className='flex flex-wrap justify-start items-start gap-4 mt-4 sm:mt-0 sm:gap-8 sm:ml-auto'>
           <li>
             <StandardLink
-              link='https://github.com/gmni-dev/RTT-WordGuess'
-              title='Repository'
+              uri='https://github.com/gmni-dev/RTT-WordGuess'
+              text='Repository'
               newTab={true}>
               <box-icon
                 type='logo'
@@ -22,8 +22,8 @@ const Footer = () => {
           </li>
           <li>
             <StandardLink
-              link='https://austin.fo/linkedin'
-              title='LinkedIn'
+              uri='https://austin.fo/linkedin'
+              text='LinkedIn'
               newTab={true}>
               <box-icon
                 type='logo'
@@ -33,8 +33,8 @@ const Footer = () => {
           </li>
           <li>
             <StandardLink
-              link='https://austin.fo/'
-              title='Austin H.'
+              uri='https://austin.fo/'
+              text='Austin H.'
               newTab={true}>
               <box-icon
                 name='link-external'

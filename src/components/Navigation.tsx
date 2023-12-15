@@ -1,5 +1,5 @@
 import Logo from './Logo';
-import StandardLink from './StandardLink';
+import StandardLink from './StyledLink';
 
 const Navigation = () => {
   return (
@@ -10,18 +10,18 @@ const Navigation = () => {
           <ul className='flex items-center justify-end gap-4 ml-auto'>
             <li>
               <StandardLink
-                title='Home'
-                link='/'></StandardLink>
+                text='Home'
+                uri='/'></StandardLink>
             </li>
             <li>
               <StandardLink
-                title='Game'
-                link='/game'></StandardLink>
+                text='Game'
+                uri='/game'></StandardLink>
             </li>
             <li>
               <StandardLink
-                title='About'
-                link='/about'></StandardLink>
+                text='About'
+                uri='/about'></StandardLink>
             </li>
           </ul>
         </div>

@@ -6,7 +6,7 @@ type LetterButtonProps = {
 const LetterButton = ({ letter, onClick }: LetterButtonProps) => {
   return (
     <button
-      className='bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded'
+      className='bg-slate-800 hover:bg-indigo-800 text-indigo-200 font-bold py-2 px-4 rounded'
       onClick={onClick}>
       {letter}
     </button>

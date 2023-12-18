@@ -10,7 +10,7 @@ const qwertyLayout = [
 const LetterTray = () => {
   return (
     <>
-      <div className='grid gap-2 sm:gap-4'>
+      <div className='grid gap-2 sm:gap-4 w-full'>
         {qwertyLayout.map((row, rowIndex) => (
           <div
             key={rowIndex}

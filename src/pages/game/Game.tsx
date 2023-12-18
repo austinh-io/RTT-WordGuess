@@ -1,5 +1,5 @@
-import GameVisual from '../components/GameVisual';
-import LetterTray from '../components/LetterTray';
+import GameVisual from './GameVisual';
+import LetterTray from './LetterTray';
 import { motion } from 'framer-motion';
 
 const pageTransition = {

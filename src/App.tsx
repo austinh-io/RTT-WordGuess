@@ -3,7 +3,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
-import Game from './pages/Game';
+import Game from './pages/game/Game';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 

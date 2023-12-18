@@ -28,8 +28,10 @@ const StyledLink: React.FC<FooterLinkProps> = ({
       target={newTab ? '_blank' : ''}
       className='relative overflow-hidden flex items-center justify-center group pb-0.5'>
       <span className='mr-1 flex items-center justify-center'>{children}</span>
-      <span className='font-medium text-indigo-100'>{text}</span>
-      <span className='absolute left-0.5 right-0 bottom-0 h-0.5 bg-slate-200 origin-left transform scale-x-0 group-hover:scale-x-100 transition-transform duration-200 ease-out'></span>
+      <span className='font-medium text-primary-text-light dark:text-primary-text-dark'>
+        {text}
+      </span>
+      <span className='absolute left-0.5 right-0 bottom-0 h-0.5 bg-primary-accent-light dark:bg-primary-accent-dark origin-left transform scale-x-0 group-hover:scale-x-100 transition-transform duration-200 ease-out'></span>
     </Link>
   );
 };

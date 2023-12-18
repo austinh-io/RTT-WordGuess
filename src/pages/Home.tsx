@@ -31,21 +31,25 @@ const Home = () => {
       <main className='flex flex-grow justify-between items-center header px-4 h-full w-[100vw]'>
         <div className='flex sm:flex-row flex-col-reverse mx-auto items-center w-full max-w-screen-xl py-16 pr-4'>
           <div className='flex flex-col items-start justify-center w-full mr-auto'>
-            <h1 className='md:text-6xl text-4xl mt-8 md:mt-0 text-indigo-200 font-semibold'>
+            <h1 className='md:text-6xl text-4xl mt-8 md:mt-0 text-primary-text-light dark:text-primary-text-dark font-semibold'>
               WordGuess
             </h1>
-            <p className='md:text-xl text-lg mt-4 text-indigo-200'>
+            <p className='md:text-xl text-lg mt-4 text-primary-text-light dark:text-primary-text-dark'>
               A game about finding the hidden word.
             </p>
             <div className='flex items-start justify-center mt-8 gap-8'>
               <Link to='/game'>
                 <Button>
-                  <span className='text-indigo-100'>New Game</span>
+                  <span className='text-primary-text-light dark:text-primary-text-dark'>
+                    New Game
+                  </span>
                 </Button>
               </Link>
               <Link to='/about'>
                 <Button>
-                  <span className='text-indigo-100'>About</span>
+                  <span className='text-primary-text-light dark:text-primary-text-dark'>
+                    About
+                  </span>
                 </Button>
               </Link>
             </div>

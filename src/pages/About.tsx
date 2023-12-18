@@ -28,13 +28,13 @@ const About: React.FC = () => {
       className='flex flex-grow justify-between items-center header px-4 h-full w-[100vw]'>
       <div className='flex sm:flex-row flex-col-reverse mx-auto justify-normal sm:justify-between items-center w-full max-w-screen-xl py-16'>
         <div className='flex flex-col items-start justify-center w-full'>
-          <h1 className='md:text-6xl text-4xl mt-8 md:mt-0 text-indigo-200 font-semibold'>
+          <h1 className='md:text-6xl text-4xl mt-8 md:mt-0 font-semibold'>
             About
           </h1>
-          <p className='md:text-xl text-lg mt-4 text-indigo-200'>
+          <p className='md:text-xl text-lg mt-4'>
             A game about finding the hidden word.
           </p>
-          <p className='mt-4 text-indigo-200'>
+          <p className='mt-4'>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil
             consequuntur dignissimos qui repellendus sapiente tempore laboriosam
             quam nam, perferendis magnam architecto eaque earum corporis
@@ -44,7 +44,7 @@ const About: React.FC = () => {
             hic itaque excepturi numquam doloremque. Perspiciatis, inventore
             iure!
           </p>
-          <p className='mt-4 text-indigo-200'>
+          <p className='mt-4'>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas
             excepturi, impedit nobis, adipisci quam eum expedita, ratione
             tempore fugiat doloribus deserunt natus eligendi corporis veniam

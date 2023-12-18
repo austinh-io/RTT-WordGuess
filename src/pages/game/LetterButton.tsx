@@ -6,7 +6,7 @@ type LetterButtonProps = {
 const LetterButton = ({ letter, onClick }: LetterButtonProps) => {
   return (
     <button
-      className='flex items-center justify-center bg-slate-800 hover:bg-indigo-800 text-indigo-200 font-bold w-6 h-6 text-sm sm:text-xl sm:h-12 sm:w-12 sm:p-6 rounded'
+      className='flex items-center justify-center w-full h-full p-1 sm:p-2 sm:text-3xl bg-slate-800 hover:bg-indigo-800 text-indigo-200 font-bold rounded'
       onClick={onClick}>
       {letter.toUpperCase()}
     </button>

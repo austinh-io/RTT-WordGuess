@@ -14,7 +14,7 @@ function App() {
     <>
       <div className='flex flex-col min-h-full-svh overflow-hidden bg-slate-950'>
         <Navigation />
-        <div className='flex flex-grow'>
+        <div className='flex items-center justify-center flex-grow'>
           <AnimatePresence
             initial={false}
             mode='wait'>

@@ -28,10 +28,12 @@ const Game: React.FC = () => {
       animate='animate'
       exit='exit'
       variants={pageTransition}>
-      <main className='flex flex-col flex-grow justify-center items-center header px-4 h-full gap-8  w-[100vw]'>
-        <GameVisual />
-        <LetterTray />
-      </main>
+      <div className='flex flex-grow justify-center items-center px-4 py-12'>
+        <main className='flex flex-col gap-8'>
+          <GameVisual />
+          <LetterTray />
+        </main>
+      </div>
     </motion.div>
   );
 };

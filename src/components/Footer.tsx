@@ -14,7 +14,7 @@ const Footer = () => {
               <box-icon
                 type='logo'
                 name='github'
-                color={colors.rose[300]}></box-icon>
+                color={colors.teal[400]}></box-icon>
             </StyledLink>
           </li>
           <li>
@@ -25,7 +25,7 @@ const Footer = () => {
               <box-icon
                 type='logo'
                 name='linkedin'
-                color={colors.rose[300]}></box-icon>
+                color={colors.teal[400]}></box-icon>
             </StyledLink>
           </li>
           <li>
@@ -35,7 +35,7 @@ const Footer = () => {
               newTab={true}>
               <box-icon
                 name='link-external'
-                color={colors.rose[300]}></box-icon>
+                color={colors.teal[400]}></box-icon>
             </StyledLink>
           </li>
         </ul>

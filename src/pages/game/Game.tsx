@@ -24,6 +24,8 @@ const pageTransition = {
   },
 };
 
+const wordApiSource = 'https://random-word-api.herokuapp.com/word?number=1';
+
 const Game: React.FC = () => {
   const [word, setWord] = useState<string>('');
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -39,9 +41,7 @@ const Game: React.FC = () => {
       try {
         setIsLoading(true);
 
-        const response = await fetch(
-          'https://random-word-api.herokuapp.com/word?number=1'
-        );
+        const response = await fetch(wordApiSource);
 
         if (!response.ok) {
           throw new Error('Something went wrong');

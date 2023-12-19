@@ -70,9 +70,7 @@ const Game: React.FC = () => {
       variants={pageTransition}>
       <div className='flex flex-grow justify-center items-center px-4 py-12'>
         <main className='flex flex-col items-center gap-8'>
-          <GameVisual
-            word={word}
-            isLoading={isLoading}>
+          <GameVisual isLoading={isLoading}>
             <WordDisplay word={word} />
           </GameVisual>
           <LetterTray />

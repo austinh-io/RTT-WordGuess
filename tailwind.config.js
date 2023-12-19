@@ -16,10 +16,10 @@ export default {
       'secondary-bg-dark': '#63586E',
 
       'primary-accent-light': '#59C9A5',
-      'primary-accent-dark': '#3CB991',
+      'primary-accent-dark': '#37A985',
 
       'primary-accent-hover-light': '#84D7BD',
-      'primary-accent-hover-dark': '#56C8A4',
+      'primary-accent-hover-dark': '#3CB991',
 
       'secondary-accent-light': '#FF6663',
       'secondary-accent-dark': '#FF6663',

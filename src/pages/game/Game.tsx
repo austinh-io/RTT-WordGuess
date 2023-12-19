@@ -3,6 +3,7 @@ import GameVisual from './GameVisual';
 import LetterTray from './LetterTray';
 import { motion } from 'framer-motion';
 import Button from '../../components/Button';
+import WordDisplay from './WordDisplay';
 
 const pageTransition = {
   initial: {
@@ -71,8 +72,9 @@ const Game: React.FC = () => {
         <main className='flex flex-col items-center gap-8'>
           <GameVisual
             word={word}
-            isLoading={isLoading}
-          />
+            isLoading={isLoading}>
+            <WordDisplay word={word} />
+          </GameVisual>
           <LetterTray />
           <div className='mt-12'>
             <Button onClick={handleNewWord}> Reset Game </Button>

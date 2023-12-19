@@ -68,13 +68,15 @@ const Game: React.FC = () => {
       exit='exit'
       variants={pageTransition}>
       <div className='flex flex-grow justify-center items-center px-4 py-12'>
-        <main className='flex flex-col gap-8'>
+        <main className='flex flex-col items-center gap-8'>
           <GameVisual
             word={word}
             isLoading={isLoading}
           />
           <LetterTray />
-          <Button onClick={handleNewWord}> New Word </Button>
+          <div className='mt-12'>
+            <Button onClick={handleNewWord}> Reset Game </Button>
+          </div>
         </main>
       </div>
     </motion.div>

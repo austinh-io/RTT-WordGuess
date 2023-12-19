@@ -1,3 +1,5 @@
+import WordDisplaySegment from './WordDisplaySegment';
+
 type WordDisplayProps = {
   word: string;
 };
@@ -5,13 +7,18 @@ type WordDisplayProps = {
 const WordDisplay = ({ word }: WordDisplayProps) => {
   return (
     <div className='flex flex-col items-center justify-center'>
-      <h1 className=' text-4xl mb-8'>Word Display</h1>
-      <p className='text-4xl'>
-        The word is{' '}
-        <span className=' text-primary-accent-light dark:text-primary-accent-dark font-bold'>
-          {word}
-        </span>
-      </p>
+      <p className='text-4xl mb-4'>The word is</p>
+      <div className='flex text-4xl'>
+        {word.split('').map((letter, index) => {
+          return (
+            <WordDisplaySegment
+              key={index}
+              letter={letter}
+              hidden={false}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 };

@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useEffect } from 'react';
 
 const pageTransition = {
   initial: {
@@ -19,6 +20,10 @@ const pageTransition = {
   },
 };
 const About: React.FC = () => {
+  useEffect(() => {
+    document.title = 'About | WordGuess';
+  }, []);
+
   return (
     <motion.div
       initial='initial'

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import Button from '../components/Button';
 import { motion } from 'framer-motion';
+import { useEffect } from 'react';
 
 const pageTransition = {
   initial: {
@@ -22,6 +23,10 @@ const pageTransition = {
 };
 
 const Home = () => {
+  useEffect(() => {
+    document.title = 'Home | WordGuess';
+  }, []);
+
   return (
     <motion.div
       initial='initial'

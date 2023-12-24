@@ -33,16 +33,18 @@ const Game: React.FC = () => {
   const [error, setError] = useState<string>('');
   const [lastLetter, setLastLetter] = useState<string>('');
   const [guessedLetters, setGuessedLetters] = useState<string[]>([]);
+  const [resetKey, setResetKey] = useState<number>(0);
+
+  function handleReset() {
+    setResetKey((prevKey) => prevKey + 1);
+    setFetchNewWord(!fetchNewWord);
+  }
 
   function handleSetLastLetter(letter: string) {
     setLastLetter(letter);
     setGuessedLetters([...guessedLetters, letter]);
     console.log(lastLetter);
     console.log(guessedLetters);
-  }
-
-  function handleNewWord() {
-    setFetchNewWord(!fetchNewWord);
   }
 
   useEffect(() => {
@@ -85,9 +87,12 @@ const Game: React.FC = () => {
             {!isLoading && !error && <WordDisplay word={word} />}
             {error && <p className='text-2xl'>{`${error}`}</p>}
           </GameVisual>
-          <LetterTray onHandleClick={handleSetLastLetter} />
+          <LetterTray
+            key={resetKey}
+            onHandleClick={handleSetLastLetter}
+          />
           <div className='mt-12'>
-            <Button onClick={handleNewWord}> Reset Game </Button>
+            <Button onClick={handleReset}> Reset Game </Button>
           </div>
         </main>
       </div>

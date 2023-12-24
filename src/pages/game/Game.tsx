@@ -30,6 +30,7 @@ const Game: React.FC = () => {
   const [word, setWord] = useState<string>('');
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [fetchNewWord, setFetchNewWord] = useState<boolean>(true);
+  const [error, setError] = useState<string>('');
 
   function handleNewWord() {
     setFetchNewWord(!fetchNewWord);
@@ -49,12 +50,12 @@ const Game: React.FC = () => {
 
         const data = await response.json();
 
-        if (data.response === 'error') throw new Error(data.error);
+        if (!data) throw new Error('No word recieved');
 
         setWord(data[0]);
-        console.log(data);
-      } catch (error) {
+      } catch (error: any) {
         console.log(error);
+        setError(error.message);
       } finally {
         setIsLoading(false);
       }
@@ -70,8 +71,10 @@ const Game: React.FC = () => {
       variants={pageTransition}>
       <div className='flex flex-grow justify-center items-center px-4 py-12'>
         <main className='flex flex-col items-center gap-8'>
-          <GameVisual isLoading={isLoading}>
-            <WordDisplay word={word} />
+          <GameVisual>
+            {isLoading && <p className='text-2xl'>Getting new word...</p>}
+            {!isLoading && !error && <WordDisplay word={word} />}
+            {error && <p className='text-2xl'>{`${error}`}</p>}
           </GameVisual>
           <LetterTray />
           <div className='mt-12'>

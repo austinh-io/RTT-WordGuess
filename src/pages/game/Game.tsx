@@ -52,6 +52,13 @@ const Game: React.FC = () => {
   }
 
   useEffect(() => {
+    if (isNewGame) {
+      setLastLetter('');
+      setGuessedLetters([]);
+    }
+  }, [isNewGame]);
+
+  useEffect(() => {
     document.title = 'Game | WordGuess';
     async function fetchWord() {
       if (isNewGame) return;

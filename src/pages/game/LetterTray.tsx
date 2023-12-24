@@ -1,7 +1,7 @@
 import LetterButton from './LetterButton';
 
 type LetterTrayProps = {
-  onHandleClick?: () => void;
+  onHandleClick: (letter: string) => void;
 };
 
 //prettier-ignore

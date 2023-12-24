@@ -31,6 +31,15 @@ const Game: React.FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [fetchNewWord, setFetchNewWord] = useState<boolean>(true);
   const [error, setError] = useState<string>('');
+  const [lastLetter, setLastLetter] = useState<string>('');
+  const [guessedLetters, setGuessedLetters] = useState<string[]>([]);
+
+  function handleSetLastLetter(letter: string) {
+    setLastLetter(letter);
+    setGuessedLetters([...guessedLetters, letter]);
+    console.log(lastLetter);
+    console.log(guessedLetters);
+  }
 
   function handleNewWord() {
     setFetchNewWord(!fetchNewWord);
@@ -76,7 +85,7 @@ const Game: React.FC = () => {
             {!isLoading && !error && <WordDisplay word={word} />}
             {error && <p className='text-2xl'>{`${error}`}</p>}
           </GameVisual>
-          <LetterTray />
+          <LetterTray onHandleClick={handleSetLastLetter} />
           <div className='mt-12'>
             <Button onClick={handleNewWord}> Reset Game </Button>
           </div>

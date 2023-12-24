@@ -26,6 +26,12 @@ export default {
 
       'secondary-accent-hover-light': '#FF8785',
       'secondary-accent-hover-dark': '#FF8785',
+
+      'disabled-light': '#E5E5E5',
+      'disabled-dark': '#333745',
+
+      'disabled-text-light': '#BDBDBD',
+      'disabled-text-dark': '#666666',
     },
     fontFamily: {
       sans: ['Poppins', 'sans-serif'],

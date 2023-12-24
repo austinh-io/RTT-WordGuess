@@ -6,7 +6,7 @@ const qwertyLayout = [
   'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l',
   'z', 'x', 'c', 'v', 'b', 'n', 'm']
 
-const LetterTray = () => {
+const LetterTray = ({ onHandleClick }) => {
   return (
     <>
       <div
@@ -17,7 +17,7 @@ const LetterTray = () => {
             className='aspect-square w-full h-full'
             key={letter}>
             <LetterButton
-              onClick={() => console.log(letter)}
+              onClick={() => onHandleClick(letter)}
               letter={letter}
             />
           </div>

@@ -1,12 +1,21 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 type LetterButtonProps = {
   letter: string;
   onClick?: () => void;
+  startDisabled: boolean;
 };
 
-const LetterButton = ({ letter, onClick }: LetterButtonProps) => {
+const LetterButton = ({
+  letter,
+  onClick,
+  startDisabled,
+}: LetterButtonProps) => {
   const [isClicked, setIsClicked] = useState(false);
+
+  useEffect(() => {
+    setIsClicked(startDisabled);
+  }, [startDisabled]);
 
   return (
     <button
@@ -15,7 +24,7 @@ const LetterButton = ({ letter, onClick }: LetterButtonProps) => {
         if (!!onClick) onClick();
         setIsClicked(true);
       }}
-      disabled={isClicked}>
+      disabled={isClicked || startDisabled}>
       {letter.toUpperCase()}
     </button>
   );

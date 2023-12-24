@@ -33,11 +33,15 @@ const Game: React.FC = () => {
   const [error, setError] = useState<string>('');
   const [lastLetter, setLastLetter] = useState<string>('');
   const [guessedLetters, setGuessedLetters] = useState<string[]>([]);
-  const [resetKey, setResetKey] = useState<number>(0);
+  const [isNewGame, setIsNewGame] = useState<boolean>(true);
 
-  function handleReset() {
-    setResetKey((prevKey) => prevKey + 1);
+  function handleStartNewGame() {
+    setIsNewGame(false);
     setFetchNewWord(!fetchNewWord);
+  }
+
+  function handleEndGame() {
+    setIsNewGame(true);
   }
 
   function handleSetLastLetter(letter: string) {
@@ -50,6 +54,7 @@ const Game: React.FC = () => {
   useEffect(() => {
     document.title = 'Game | WordGuess';
     async function fetchWord() {
+      if (isNewGame) return;
       try {
         setIsLoading(true);
 
@@ -83,16 +88,20 @@ const Game: React.FC = () => {
       <div className='flex flex-grow justify-center items-center px-4 py-12'>
         <main className='flex flex-col items-center gap-8'>
           <GameVisual>
+            {isNewGame && <p className='text-2xl'>Press New Game to start</p>}
             {isLoading && <p className='text-2xl'>Getting new word...</p>}
-            {!isLoading && !error && <WordDisplay word={word} />}
+            {!isLoading && !error && !isNewGame && <WordDisplay word={word} />}
             {error && <p className='text-2xl'>{`${error}`}</p>}
           </GameVisual>
           <LetterTray
-            key={resetKey}
             onHandleClick={handleSetLastLetter}
+            isNewGame={isNewGame}
+            isLoading={isLoading}
           />
           <div className='mt-12'>
-            <Button onClick={handleReset}> Reset Game </Button>
+            <Button onClick={isNewGame ? handleStartNewGame : handleEndGame}>
+              {isNewGame ? 'New Game' : 'End Game'}
+            </Button>
           </div>
         </main>
       </div>

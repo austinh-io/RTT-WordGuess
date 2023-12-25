@@ -6,7 +6,9 @@ type WordDisplayProps = {
 const WordDisplaySegment = ({ letter, hidden }: WordDisplayProps) => {
   return (
     <>
-      <div>{hidden ? '_' : letter}</div>
+      <div className=' font-semibold'>
+        <i>{hidden ? '_' : letter}</i>
+      </div>
     </>
   );
 };

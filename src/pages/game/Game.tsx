@@ -47,8 +47,6 @@ const Game: React.FC = () => {
   function handleSetLastLetter(letter: string) {
     setLastLetter(letter);
     setGuessedLetters([...guessedLetters, letter]);
-    console.log(lastLetter);
-    console.log(guessedLetters);
   }
 
   useEffect(() => {
@@ -95,8 +93,16 @@ const Game: React.FC = () => {
       <div className='flex flex-grow justify-center items-center px-4 py-12'>
         <main className='flex flex-col items-center gap-8'>
           <GameVisual>
-            {isNewGame && <p className='text-2xl'>Press New Game to start</p>}
-            {isLoading && <p className='text-2xl'>Getting new word...</p>}
+            {isNewGame && (
+              <p className='text-2xl'>
+                Press <b>New Game</b> to start
+              </p>
+            )}
+            {isLoading && (
+              <p className='text-2xl'>
+                <i>Getting new word...</i>
+              </p>
+            )}
             {!isLoading && !error && !isNewGame && <WordDisplay word={word} />}
             {error && <p className='text-2xl'>{`${error}`}</p>}
           </GameVisual>

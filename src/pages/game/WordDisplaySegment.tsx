@@ -6,7 +6,6 @@ type WordDisplayProps = {
 };
 
 const WordDisplaySegment = ({ letter, hidden }: WordDisplayProps) => {
-  // useEffect(() => {}, [hidden]);
   return (
     <>
       <div className=' font-semibold'>

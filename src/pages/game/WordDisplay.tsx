@@ -7,8 +7,6 @@ type WordDisplayProps = {
 };
 
 const WordDisplay = ({ word, guessedLetters }: WordDisplayProps) => {
-  // useEffect(() => {}, [guessedLetters]);
-
   return (
     <div className='flex flex-col items-center justify-center'>
       <div className='flex text-4xl'>

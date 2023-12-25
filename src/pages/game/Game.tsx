@@ -24,6 +24,8 @@ const pageTransition = {
   },
 };
 
+const debugDisplay = false;
+
 const wordApiSource = 'https://random-word-api.herokuapp.com/word?number=1';
 
 const Game: React.FC = () => {
@@ -89,9 +91,11 @@ const Game: React.FC = () => {
       variants={pageTransition}>
       <div className='flex flex-grow justify-center items-center px-4 py-12'>
         <main className='flex flex-col items-center gap-8'>
-          <p className=' text-red-200 font-bold text-2xl'>
-            Word: <i className=' font-normal'>{word}</i>
-          </p>
+          {debugDisplay && (
+            <p className=' text-red-200 font-bold text-2xl'>
+              Word: <i className=' font-normal'>{word}</i>
+            </p>
+          )}
           <GameVisual>
             {isNewGame && (
               <p className='text-2xl'>

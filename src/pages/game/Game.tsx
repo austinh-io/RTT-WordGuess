@@ -31,7 +31,6 @@ const Game: React.FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [fetchNewWord, setFetchNewWord] = useState<boolean>(true);
   const [error, setError] = useState<string>('');
-  const [lastLetter, setLastLetter] = useState<string>('');
   const [guessedLetters, setGuessedLetters] = useState<string[]>([]);
   const [isNewGame, setIsNewGame] = useState<boolean>(true);
 
@@ -45,13 +44,11 @@ const Game: React.FC = () => {
   }
 
   function handleSetLastLetter(letter: string) {
-    setLastLetter(letter);
     setGuessedLetters([...guessedLetters, letter]);
   }
 
   useEffect(() => {
     if (isNewGame) {
-      setLastLetter('');
       setGuessedLetters([]);
     }
   }, [isNewGame]);
@@ -92,6 +89,9 @@ const Game: React.FC = () => {
       variants={pageTransition}>
       <div className='flex flex-grow justify-center items-center px-4 py-12'>
         <main className='flex flex-col items-center gap-8'>
+          <p className=' text-red-200 font-bold text-2xl'>
+            Word: <i className=' font-normal'>{word}</i>
+          </p>
           <GameVisual>
             {isNewGame && (
               <p className='text-2xl'>
@@ -103,7 +103,12 @@ const Game: React.FC = () => {
                 <i>Getting new word...</i>
               </p>
             )}
-            {!isLoading && !error && !isNewGame && <WordDisplay word={word} />}
+            {!isLoading && !error && !isNewGame && (
+              <WordDisplay
+                word={word}
+                guessedLetters={guessedLetters}
+              />
+            )}
             {error && <p className='text-2xl'>{`${error}`}</p>}
           </GameVisual>
           <LetterTray

@@ -1,20 +1,29 @@
+import { useEffect } from 'react';
 import WordDisplaySegment from './WordDisplaySegment';
 
 type WordDisplayProps = {
   word: string;
+  guessedLetters: string[];
 };
 
-const WordDisplay = ({ word }: WordDisplayProps) => {
+const WordDisplay = ({ word, guessedLetters }: WordDisplayProps) => {
+  // useEffect(() => {}, [guessedLetters]);
+
   return (
     <div className='flex flex-col items-center justify-center'>
-      <p className='text-4xl mb-4'>The word is</p>
       <div className='flex text-4xl'>
         {word.split('').map((letter, index) => {
           return (
             <WordDisplaySegment
               key={index}
               letter={letter}
-              hidden={false}
+              hidden={
+                !!guessedLetters
+                  ? guessedLetters.includes(letter)
+                    ? false
+                    : true
+                  : true
+              }
             />
           );
         })}

@@ -3,8 +3,10 @@ import LetterButton from './LetterButton';
 
 type LetterTrayProps = {
   onHandleClick: (letter: string) => void;
+  onHandleGuessWrong: () => void;
   isNewGame: boolean;
   isLoading: boolean;
+  word: string;
 };
 
 //prettier-ignore
@@ -15,8 +17,10 @@ const qwertyLayout = [
 
 const LetterTray = ({
   onHandleClick,
+  onHandleGuessWrong,
   isNewGame,
   isLoading,
+  word,
 }: LetterTrayProps) => {
   const [disabledLetters, setDisabledLetters] = useState<string[]>([]);
 
@@ -44,6 +48,8 @@ const LetterTray = ({
                 isLoading || isNewGame ? true : disabledLetters.includes(letter)
               }
               onClick={() => handleClick(letter)}
+              onGuessWrong={onHandleGuessWrong}
+              word={word}
             />
           </div>
         ))}

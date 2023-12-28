@@ -24,6 +24,8 @@ const pageTransition = {
   },
 };
 
+const initGuessCount = 4;
+
 const debugDisplay = true;
 
 const wordApiSource = 'https://random-word-api.herokuapp.com/word?number=1';
@@ -35,7 +37,19 @@ const Game: React.FC = () => {
   const [error, setError] = useState<string>('');
   const [guessedLetters, setGuessedLetters] = useState<string[]>([]);
   const [isNewGame, setIsNewGame] = useState<boolean>(true);
-  const [guessCount, setGuessCount] = useState<number>(0);
+  const [guessCount, setGuessCount] = useState<number>(initGuessCount);
+
+  function handleDecrementGuessCount() {
+    if (guessCount <= 0) {
+      handleEndGame();
+      return;
+    }
+    setGuessCount(guessCount - 1);
+  }
+
+  function resetGuessCount() {
+    setGuessCount(initGuessCount);
+  }
 
   function handleStartNewGame() {
     setIsNewGame(false);
@@ -45,6 +59,7 @@ const Game: React.FC = () => {
   function handleEndGame() {
     setIsNewGame(true);
     setWord('');
+    resetGuessCount();
   }
 
   function handleSetLastLetter(letter: string) {
@@ -120,10 +135,17 @@ const Game: React.FC = () => {
             )}
             {error && <p className='text-2xl'>{`${error}`}</p>}
           </GameVisual>
+          <div>
+            <p className='text-2xl'>
+              Guesses left: <b>{guessCount}</b>
+            </p>
+          </div>
           <LetterTray
             onHandleClick={handleSetLastLetter}
+            onHandleGuessWrong={handleDecrementGuessCount}
             isNewGame={isNewGame}
             isLoading={isLoading}
+            word={word}
           />
           <div className='mt-12'>
             <Button onClick={isNewGame ? handleStartNewGame : handleEndGame}>

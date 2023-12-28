@@ -24,7 +24,7 @@ const pageTransition = {
   },
 };
 
-const debugDisplay = false;
+const debugDisplay = true;
 
 const wordApiSource = 'https://random-word-api.herokuapp.com/word?number=1';
 
@@ -35,6 +35,7 @@ const Game: React.FC = () => {
   const [error, setError] = useState<string>('');
   const [guessedLetters, setGuessedLetters] = useState<string[]>([]);
   const [isNewGame, setIsNewGame] = useState<boolean>(true);
+  const [guessCount, setGuessCount] = useState<number>(0);
 
   function handleStartNewGame() {
     setIsNewGame(false);
@@ -43,11 +44,16 @@ const Game: React.FC = () => {
 
   function handleEndGame() {
     setIsNewGame(true);
+    setWord('');
   }
 
   function handleSetLastLetter(letter: string) {
     setGuessedLetters([...guessedLetters, letter]);
   }
+
+  useEffect(() => {
+    document.title = 'Game | WordGuess';
+  });
 
   useEffect(() => {
     if (isNewGame) {
@@ -56,7 +62,6 @@ const Game: React.FC = () => {
   }, [isNewGame]);
 
   useEffect(() => {
-    document.title = 'Game | WordGuess';
     async function fetchWord() {
       if (isNewGame) return;
       try {
@@ -97,17 +102,17 @@ const Game: React.FC = () => {
             </p>
           )}
           <GameVisual>
-            {isNewGame && (
+            {isNewGame && !isLoading && !error && (
               <p className='text-2xl'>
                 Press <b>New Game</b> to start
               </p>
             )}
-            {isLoading && (
+            {!isNewGame && isLoading && !error && (
               <p className='text-2xl'>
                 <i>Getting new word...</i>
               </p>
             )}
-            {!isLoading && !error && !isNewGame && (
+            {!isNewGame && !isLoading && !error && (
               <WordDisplay
                 word={word}
                 guessedLetters={guessedLetters}

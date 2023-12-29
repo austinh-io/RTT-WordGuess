@@ -116,25 +116,21 @@ const Game: React.FC = () => {
       variants={pageTransition}>
       <div className='flex flex-grow justify-center items-center px-4 py-12'>
         <main className='flex flex-col items-center gap-8'>
-          <div className='mr-auto flex gap-8 items-center'>
+          <div className='mr-auto flex gap-8 items-center border-solid border-2 p-4 rounded-md'>
             <Button
               onClick={handleSetDebugMode}
               type='danger'>
               Cheat Mode
             </Button>
-            {/* {debugMode && (
-              <p className=' text-red-200 font-bold text-2xl'>
-                The word is{' '}
-                <i className=' font-normal'>{!!word ? word : '(n/a)'}</i>
-              </p>
-            )} */}
             {
-              <p
-                className={` text-red-200 font-bold text-2xl ${
-                  debugMode ? 'blur-md' : 'blur-none'
-                }`}>
+              <p className={` text-red-200 font-bold`}>
                 The word is{' '}
-                <i className=' font-normal'>{!!word ? word : '(n/a)'}</i>
+                <i
+                  className={` font-normal transition-all ${
+                    !debugMode ? 'blur' : 'blur-none'
+                  }`}>
+                  {!!word ? word : '(n/a)'}
+                </i>
               </p>
             }
           </div>

@@ -137,7 +137,9 @@ const Game: React.FC = () => {
             <p className='text-2xl'>
               Guesses left: <b>{guessCount}</b>
             </p>
-            <Button onClick={isNewGame ? handleStartNewGame : handleEndGame}>
+            <Button
+              onClick={isNewGame ? handleStartNewGame : handleEndGame}
+              type={isNewGame ? 'primary' : 'danger'}>
               {isNewGame ? 'New Game' : 'End Game'}
             </Button>
           </div>

@@ -122,12 +122,21 @@ const Game: React.FC = () => {
               type='danger'>
               Cheat Mode
             </Button>
-            {debugMode && (
+            {/* {debugMode && (
               <p className=' text-red-200 font-bold text-2xl'>
                 The word is{' '}
                 <i className=' font-normal'>{!!word ? word : '(n/a)'}</i>
               </p>
-            )}
+            )} */}
+            {
+              <p
+                className={` text-red-200 font-bold text-2xl ${
+                  debugMode ? 'blur-md' : 'blur-none'
+                }`}>
+                The word is{' '}
+                <i className=' font-normal'>{!!word ? word : '(n/a)'}</i>
+              </p>
+            }
           </div>
 
           <GameVisual>

@@ -4,6 +4,7 @@ import LetterTray from './LetterTray';
 import { motion } from 'framer-motion';
 import Button from '../../components/Button';
 import WordDisplay from './WordDisplay';
+import Modal from '../../components/Modal';
 
 const pageTransition = {
   initial: {
@@ -112,6 +113,7 @@ const Game: React.FC = () => {
       animate='animate'
       exit='exit'
       variants={pageTransition}>
+      <Modal />
       <div className='flex flex-grow justify-center items-center px-4 py-12'>
         <main className='flex flex-col items-center gap-8'>
           <GameVisual>

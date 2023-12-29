@@ -114,11 +114,6 @@ const Game: React.FC = () => {
       variants={pageTransition}>
       <div className='flex flex-grow justify-center items-center px-4 py-12'>
         <main className='flex flex-col items-center gap-8'>
-          <div className='mb-4'>
-            <Button onClick={isNewGame ? handleStartNewGame : handleEndGame}>
-              {isNewGame ? 'New Game' : 'End Game'}
-            </Button>
-          </div>
           <GameVisual>
             {isNewGame && !isLoading && !error && (
               <p className='text-2xl'>
@@ -138,10 +133,13 @@ const Game: React.FC = () => {
             )}
             {error && <p className='text-2xl'>{`${error}`}</p>}
           </GameVisual>
-          <div>
+          <div className='mb-4 flex justify-between items-center w-full'>
             <p className='text-2xl'>
               Guesses left: <b>{guessCount}</b>
             </p>
+            <Button onClick={isNewGame ? handleStartNewGame : handleEndGame}>
+              {isNewGame ? 'New Game' : 'End Game'}
+            </Button>
           </div>
           <LetterTray
             onHandleClick={handleSetLastLetter}

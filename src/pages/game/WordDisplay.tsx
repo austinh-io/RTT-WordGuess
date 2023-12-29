@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import WordDisplaySegment from './WordDisplaySegment';
 
 type WordDisplayProps = {

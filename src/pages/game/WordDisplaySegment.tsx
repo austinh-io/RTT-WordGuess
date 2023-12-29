@@ -1,5 +1,3 @@
-import { useEffect } from 'react';
-
 type WordDisplayProps = {
   letter: string;
   hidden: boolean;

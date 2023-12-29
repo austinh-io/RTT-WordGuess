@@ -26,8 +26,6 @@ const pageTransition = {
 
 const initGuessCount = 4;
 
-const debugDisplay = true;
-
 const wordApiSource = 'https://random-word-api.herokuapp.com/word?number=1';
 
 const Game: React.FC = () => {
@@ -116,25 +114,11 @@ const Game: React.FC = () => {
       variants={pageTransition}>
       <div className='flex flex-grow justify-center items-center px-4 py-12'>
         <main className='flex flex-col items-center gap-8'>
-          <div className='mr-auto flex gap-8 items-center border-solid border-2 p-4 rounded-md'>
-            <Button
-              onClick={handleSetDebugMode}
-              type='danger'>
-              Cheat Mode
+          <div className='mb-4'>
+            <Button onClick={isNewGame ? handleStartNewGame : handleEndGame}>
+              {isNewGame ? 'New Game' : 'End Game'}
             </Button>
-            {
-              <p className={` text-red-200 font-bold`}>
-                The word is{' '}
-                <i
-                  className={` font-normal transition-all ${
-                    !debugMode ? 'blur' : 'blur-none'
-                  }`}>
-                  {!!word ? word : '(n/a)'}
-                </i>
-              </p>
-            }
           </div>
-
           <GameVisual>
             {isNewGame && !isLoading && !error && (
               <p className='text-2xl'>
@@ -166,10 +150,24 @@ const Game: React.FC = () => {
             isLoading={isLoading}
             word={word}
           />
-          <div className='mt-12'>
-            <Button onClick={isNewGame ? handleStartNewGame : handleEndGame}>
-              {isNewGame ? 'New Game' : 'End Game'}
+
+          <div className='mr-auto flex gap-8 items-center border-solid border-2 p-4 rounded-md mt-12'>
+            <Button
+              onClick={handleSetDebugMode}
+              type='danger'>
+              Cheat Mode
             </Button>
+            {
+              <p className={` text-red-200 font-bold`}>
+                The word is{' '}
+                <i
+                  className={` font-normal transition-all ${
+                    !debugMode ? 'blur' : 'blur-none'
+                  }`}>
+                  {!!word ? word : '(n/a)'}
+                </i>
+              </p>
+            }
           </div>
         </main>
       </div>

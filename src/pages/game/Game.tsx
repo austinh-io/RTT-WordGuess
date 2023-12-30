@@ -142,7 +142,7 @@ const Game: React.FC = () => {
           </GameVisual>
           <div>
             <div className='mb-4 flex justify-between items-center w-full'>
-              <p className='text-2xl'>
+              <p className='sm:text-2xl text-lg'>
                 Guesses left: <b>{guessCount}</b>
               </p>
               <Button

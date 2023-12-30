@@ -113,10 +113,11 @@ const Game: React.FC = () => {
       initial='initial'
       animate='animate'
       exit='exit'
-      variants={pageTransition}>
+      variants={pageTransition}
+      className=' flex items-center flex-col w-full'>
       <Modal />
-      <div className='flex flex-grow justify-center items-center px-4 py-12'>
-        <main className='flex lg:flex-row items-center gap-8 flex-col '>
+      <div className='flex flex-grow items-center px-4 py-12 w-full'>
+        <main className='flex justify-center lg:flex-row items-center gap-8 flex-col w-full'>
           <GameVisual>
             {isNewGame && !isLoading && !error && (
               <p className='text-2xl'>

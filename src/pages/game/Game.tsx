@@ -128,7 +128,7 @@ const Game: React.FC = () => {
                 <i>Getting new word...</i>
               </p>
             )}
-            {!isNewGame && !isLoading && !error && (
+            {!isNewGame && !isLoading && !error && word && (
               <>
                 <GameWindow />
                 <WordDisplay

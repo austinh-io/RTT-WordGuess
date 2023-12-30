@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import Button from '../../components/Button';
 import WordDisplay from './WordDisplay';
 import Modal from '../../components/Modal';
+import GameWindow from './GameWindow';
 
 const pageTransition = {
   initial: {
@@ -128,10 +129,13 @@ const Game: React.FC = () => {
               </p>
             )}
             {!isNewGame && !isLoading && !error && (
-              <WordDisplay
-                word={word}
-                guessedLetters={guessedLetters}
-              />
+              <>
+                <GameWindow />
+                <WordDisplay
+                  word={word}
+                  guessedLetters={guessedLetters}
+                />
+              </>
             )}
             {error && <p className='text-2xl'>{`${error}`}</p>}
           </GameVisual>

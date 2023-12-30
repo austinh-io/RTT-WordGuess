@@ -114,10 +114,10 @@ const Game: React.FC = () => {
       animate='animate'
       exit='exit'
       variants={pageTransition}
-      className=' flex items-center flex-col w-full'>
+      className='flex flex-col w-full max-w-7xl px-4'>
       <Modal />
-      <div className='flex flex-grow items-center px-4 py-12 w-full'>
-        <main className='flex justify-center lg:flex-row items-center gap-8 flex-col w-full'>
+      <div className='flex flex-col'>
+        <main className='flex flex-col lg:flex-row items-center gap-8'>
           <GameVisual>
             {isNewGame && !isLoading && !error && (
               <p className='text-2xl'>
@@ -140,8 +140,8 @@ const Game: React.FC = () => {
             )}
             {error && <p className='text-2xl'>{`${error}`}</p>}
           </GameVisual>
-          <div>
-            <div className='mb-4 flex justify-between items-center w-full'>
+          <div className='flex flex-col w-full flex-grow'>
+            <div className='flex justify-between items-center'>
               <p className='sm:text-2xl text-lg'>
                 Guesses left: <b>{guessCount}</b>
               </p>
@@ -151,15 +151,17 @@ const Game: React.FC = () => {
                 {isNewGame ? 'New Game' : 'End Game'}
               </Button>
             </div>
-            <LetterTray
-              onHandleClick={handleSetLastLetter}
-              onHandleGuessWrong={handleDecrementGuessCount}
-              isNewGame={isNewGame}
-              isLoading={isLoading}
-              word={word}
-            />
+            <div className='mt-8'>
+              <LetterTray
+                onHandleClick={handleSetLastLetter}
+                onHandleGuessWrong={handleDecrementGuessCount}
+                isNewGame={isNewGame}
+                isLoading={isLoading}
+                word={word}
+              />
+            </div>
 
-            <div className='mr-auto flex gap-8 items-center border-solid border-2 p-4 rounded-md mt-12'>
+            <div className='flex gap-8 items-center border-solid border-2 rounded-md p-4 mt-24 mr-auto'>
               <Button
                 onClick={handleSetDebugMode}
                 type='danger'>

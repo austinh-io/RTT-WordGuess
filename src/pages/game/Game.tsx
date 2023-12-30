@@ -116,7 +116,7 @@ const Game: React.FC = () => {
       variants={pageTransition}>
       <Modal />
       <div className='flex flex-grow justify-center items-center px-4 py-12'>
-        <main className='flex flex-col items-center gap-8'>
+        <main className='flex lg:flex-row items-center gap-8 flex-col '>
           <GameVisual>
             {isNewGame && !isLoading && !error && (
               <p className='text-2xl'>
@@ -139,41 +139,43 @@ const Game: React.FC = () => {
             )}
             {error && <p className='text-2xl'>{`${error}`}</p>}
           </GameVisual>
-          <div className='mb-4 flex justify-between items-center w-full'>
-            <p className='text-2xl'>
-              Guesses left: <b>{guessCount}</b>
-            </p>
-            <Button
-              onClick={isNewGame ? handleStartNewGame : handleEndGame}
-              type={isNewGame ? 'primary' : 'danger'}>
-              {isNewGame ? 'New Game' : 'End Game'}
-            </Button>
-          </div>
-          <LetterTray
-            onHandleClick={handleSetLastLetter}
-            onHandleGuessWrong={handleDecrementGuessCount}
-            isNewGame={isNewGame}
-            isLoading={isLoading}
-            word={word}
-          />
-
-          <div className='mr-auto flex gap-8 items-center border-solid border-2 p-4 rounded-md mt-12'>
-            <Button
-              onClick={handleSetDebugMode}
-              type='danger'>
-              Cheat Mode
-            </Button>
-            {
-              <p className={` text-red-200 font-bold`}>
-                The word is{' '}
-                <i
-                  className={` font-normal transition-all ${
-                    !debugMode ? 'blur' : 'blur-none'
-                  }`}>
-                  {!!word ? word : '(n/a)'}
-                </i>
+          <div>
+            <div className='mb-4 flex justify-between items-center w-full'>
+              <p className='text-2xl'>
+                Guesses left: <b>{guessCount}</b>
               </p>
-            }
+              <Button
+                onClick={isNewGame ? handleStartNewGame : handleEndGame}
+                type={isNewGame ? 'primary' : 'danger'}>
+                {isNewGame ? 'New Game' : 'End Game'}
+              </Button>
+            </div>
+            <LetterTray
+              onHandleClick={handleSetLastLetter}
+              onHandleGuessWrong={handleDecrementGuessCount}
+              isNewGame={isNewGame}
+              isLoading={isLoading}
+              word={word}
+            />
+
+            <div className='mr-auto flex gap-8 items-center border-solid border-2 p-4 rounded-md mt-12'>
+              <Button
+                onClick={handleSetDebugMode}
+                type='danger'>
+                Cheat Mode
+              </Button>
+              {
+                <p className={` text-red-200 font-bold`}>
+                  The word is{' '}
+                  <i
+                    className={` font-normal transition-all ${
+                      !debugMode ? 'blur' : 'blur-none'
+                    }`}>
+                    {!!word ? word : '(n/a)'}
+                  </i>
+                </p>
+              }
+            </div>
           </div>
         </main>
       </div>

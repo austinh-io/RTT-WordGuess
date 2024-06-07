@@ -116,7 +116,7 @@ const Game: React.FC = () => {
       variants={pageTransition}
       className='flex flex-col w-full max-w-7xl px-4'>
       <Modal />
-      <div className='flex flex-col'>
+      <div className='flex flex-col mt-8'>
         <main className='flex flex-col lg:flex-row items-center gap-8'>
           <GameVisual>
             {isNewGame && !isLoading && !error && (
@@ -161,7 +161,7 @@ const Game: React.FC = () => {
               />
             </div>
 
-            <div className='flex gap-8 items-center border-solid border-2 rounded-md p-4 mt-24 mr-auto'>
+            <div className='flex gap-8 items-center border-solid border-2 rounded-md p-4 mt-24 mr-auto sm:mb-auto mb-8'>
               <Button
                 onClick={handleSetDebugMode}
                 type='danger'>

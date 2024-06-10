@@ -26,7 +26,7 @@ const pageTransition = {
   },
 };
 
-const initGuessCount = 4;
+const initGuessCount = 3;
 
 const wordApiSource = 'https://random-word-api.herokuapp.com/word?number=1';
 
@@ -39,6 +39,7 @@ const Game: React.FC = () => {
   const [isNewGame, setIsNewGame] = useState<boolean>(true);
   const [guessCount, setGuessCount] = useState<number>(initGuessCount);
   const [debugMode, setDebugMode] = useState<boolean>(false);
+  const [enableModal, setEnableModal] = useState<boolean>(false);
 
   function handleSetDebugMode() {
     setDebugMode(!debugMode);
@@ -65,6 +66,7 @@ const Game: React.FC = () => {
     setIsNewGame(true);
     setWord('');
     resetGuessCount();
+    setEnableModal(() => true)
   }
 
   function handleSetLastLetter(letter: string) {
@@ -115,7 +117,12 @@ const Game: React.FC = () => {
       exit='exit'
       variants={pageTransition}
       className='flex flex-col w-full max-w-7xl px-4'>
-      <Modal />
+      <Modal
+        enabled={enableModal}>
+        <h4>Modal</h4>
+        <p>Lorem Ipsum</p>
+        <Button onClick={() => setEnableModal(false)}>Close Me</Button>
+      </Modal>
       <div className='flex flex-col mt-8'>
         <main className='flex flex-col lg:flex-row items-center gap-8'>
           <GameVisual>

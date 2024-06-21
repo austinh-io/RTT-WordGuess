@@ -39,7 +39,7 @@ const Game: React.FC = () => {
   const [isNewGame, setIsNewGame] = useState<boolean>(true);
   const [guessCount, setGuessCount] = useState<number>(initGuessCount);
   const [debugMode, setDebugMode] = useState<boolean>(false);
-  const [enableModal, setEnableModal] = useState<boolean>(false);
+  const [modalEnabled, setModalEnabled] = useState<boolean>(false);
 
   function handleSetDebugMode() {
     setDebugMode(!debugMode);
@@ -66,7 +66,7 @@ const Game: React.FC = () => {
     setIsNewGame(true);
     setWord("");
     resetGuessCount();
-    setEnableModal(() => true);
+    setModalEnabled(() => true);
   }
 
   function handleSetLastLetter(letter: string) {
@@ -112,10 +112,10 @@ const Game: React.FC = () => {
 
   return (
     <>
-      <Modal enabled={enableModal}>
+      <Modal enabled={modalEnabled} onClose={() => setModalEnabled(false)}>
         <h4>Modal</h4>
         <p>Lorem Ipsum</p>
-        <Button onClick={() => setEnableModal(false)}>Close Me</Button>
+        <Button onClick={() => setModalEnabled(false)}>Close Me</Button>
       </Modal>
       <motion.div
         initial="initial"

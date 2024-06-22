@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import LetterButton from './LetterButton';
+import { useEffect, useState } from "react";
+import LetterButton from "./LetterButton";
 
 type LetterTrayProps = {
   onHandleClick: (letter: string) => void;
@@ -36,18 +36,17 @@ const LetterTray = ({
   return (
     <>
       <div
-        className='grid letter-tray sm:gap-4 gap-1 w-full max-w-screen-md'
-        style={{ gridTemplateColumns: 'repeat(10, 1fr)' }}>
+        className="grid letter-tray sm:gap-4 gap-1 w-full max-w-screen-md"
+        style={{ gridTemplateColumns: "repeat(10, 1fr)" }}
+      >
         {qwertyLayout.map((letter) => (
-          <div
-            className='aspect-square w-full h-full'
-            key={letter}>
+          <div className="aspect-square w-full h-full" key={letter}>
             <LetterButton
               letter={letter}
               startDisabled={
                 isLoading || isNewGame ? true : disabledLetters.includes(letter)
               }
-              onClick={() => handleClick(letter)}
+              onButtonClick={() => handleClick(letter)}
               onGuessWrong={onHandleGuessWrong}
               word={word}
             />

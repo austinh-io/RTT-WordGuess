@@ -26,6 +26,15 @@ const pageTransition = {
   },
 };
 
+function allGuessedLettersMatch(word: string, charArray: string[]): boolean {
+  for (const letter of word) {
+    if (!charArray.includes(letter)) {
+      return false;
+    }
+  }
+  return true;
+}
+
 const initGuessCount = 3;
 
 const wordApiSource = "https://random-word-api.herokuapp.com/word?number=1";
@@ -40,13 +49,15 @@ const Game: React.FC = () => {
   const [guessCount, setGuessCount] = useState<number>(initGuessCount);
   const [debugMode, setDebugMode] = useState<boolean>(false);
   const [modalEnabled, setModalEnabled] = useState<boolean>(false);
+  const [playerIsWinner, setPlayerIsWinner] = useState<boolean>(false);
 
   function handleSetDebugMode() {
     setDebugMode(!debugMode);
   }
 
   function handleDecrementGuessCount() {
-    if (guessCount <= 0) {
+    if (guessCount <= 1) {
+      setPlayerIsWinner(false);
       handleEndGame();
       return;
     }
@@ -67,6 +78,20 @@ const Game: React.FC = () => {
     setWord("");
     resetGuessCount();
     setModalEnabled(() => true);
+
+    if (allGuessedLettersMatch(word, guessedLetters)) {
+      setPlayerIsWinner(true);
+    } else {
+      setPlayerIsWinner(false);
+    }
+  }
+
+  function checkIfWonGame() {
+    if (allGuessedLettersMatch(word, guessedLetters)) {
+      setPlayerIsWinner(true);
+      handleEndGame();
+      return;
+    }
   }
 
   function handleSetLastLetter(letter: string) {
@@ -110,12 +135,16 @@ const Game: React.FC = () => {
     fetchWord();
   }, [fetchNewWord]);
 
+  useEffect(() => {
+    if (guessedLetters.length > 0 && word !== "") checkIfWonGame();
+  }, [guessedLetters, word]);
+
   return (
     <>
       <Modal enabled={modalEnabled} onClose={() => setModalEnabled(false)}>
-        <h4>Modal</h4>
-        <p>Lorem Ipsum</p>
-        <Button onClick={() => setModalEnabled(false)}>Close Me</Button>
+        <h4>{playerIsWinner ? "Winner!" : "Loser!"}</h4>
+        {playerIsWinner ? "You won!" : "You lost!"}
+        <Button onClick={() => setModalEnabled(false)}>New Game</Button>
       </Modal>
       <motion.div
         initial="initial"
@@ -153,6 +182,7 @@ const Game: React.FC = () => {
                 <Button
                   onClick={isNewGame ? handleStartNewGame : handleEndGame}
                   type={isNewGame ? "primary" : "danger"}
+                  disabled={isLoading ? true : false}
                 >
                   {isNewGame ? "New Game" : "End Game"}
                 </Button>

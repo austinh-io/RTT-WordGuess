@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import LetterButton from "./LetterButton";
+import LetterButton from "../../components/game/LetterButton";
 
 type LetterTrayProps = {
   onHandleClick: (letter: string) => void;

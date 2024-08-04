@@ -8,7 +8,7 @@ const Footer = () => {
         <ul className='flex flex-wrap justify-start items-start gap-4 mt-4 sm:mt-0 sm:gap-8 sm:mr-auto'>
           <li>
             <StyledLink
-              uri='https://github.com/austinh-io/RTT-WordGuess'
+              uri='https://astn.sh/gh-rtt-wordguess'
               text='Repository'
               newTab={true}>
               <box-icon
@@ -19,7 +19,7 @@ const Footer = () => {
           </li>
           <li>
             <StyledLink
-              uri='https://i.austinh.io/linkedin'
+              uri='https://astn.sh/linkedin/'
               text='LinkedIn'
               newTab={true}>
               <box-icon

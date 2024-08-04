@@ -1,18 +1,25 @@
+import '../../styles.css';
+
+function isFirefox() {
+	return (
+		typeof navigator !== 'undefined' && /firefox/i.test(navigator.userAgent)
+	);
+}
+
+function censorClass(cheatModeEnabled: boolean) {
+	if (isFirefox()) return cheatModeEnabled ? 'visible' : 'invisible';
+	else return cheatModeEnabled ? ' filter-none' : 'filter blur-sm';
+}
+
 type CheatWordDisplayProps = {
 	word: string;
 	debugMode: boolean;
 };
 
 const CheatWordDisplay = ({ word, debugMode }: CheatWordDisplayProps) => {
-	return (
-		<i
-			className={`${
-				!debugMode ? 'filter blur-sm' : 'filter-none'
-			} font-normal transition-all`}
-		>
-			{!!word ? word : '(n/a)'}
-		</i>
-	);
+	const className = `${censorClass(debugMode)} font-normal transition-all`;
+
+	return <i className={className}>{word || '(n/a)'}</i>;
 };
 
 export default CheatWordDisplay;
